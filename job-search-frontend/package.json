@@ -1,0 +1,11 @@
+{
+  "name": "job-search-frontend",
+  "version": "1.0.0",
+  "description": "Job search UI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nurudeen",
+  "license": "ISC"
+}
