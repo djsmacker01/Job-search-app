@@ -1,7 +1,11 @@
+// 
 const employeeInput = document.getElementById('employee');
 const submit = document.getElementById('submit');
 const showMessage = document.getElementById('showMessage');
 
+
+
+// Add event listener
 submit.addEventListener('click', async () =>{
 let profileDisplay = document.createElement('div');
 let response = await fetch("http://localhost:3000/jobTitle", {
