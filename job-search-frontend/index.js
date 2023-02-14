@@ -2,7 +2,7 @@
 const employeeInput = document.getElementById('employee');
 const submit = document.getElementById('submit');
 const showMessage = document.getElementById('showMessage');
-
+const container = document.getElementById('showContent')
 
 
 // Add event listener
