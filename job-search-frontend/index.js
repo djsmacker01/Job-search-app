@@ -6,9 +6,10 @@ const container = document.getElementById("content");
 
 // Add event listener
 submit.addEventListener("click", async () => {
+  showMessage.innerHTML = "";
   if (employeeInput.value.trim() === "") {
     let profileDisplay = document.createElement("div");
-    profileDisplay.textContent = "J";
+    profileDisplay.textContent = "Enter Employee job categories";
     showMessage.appendChild(profileDisplay);
   } else {
     let response = await fetch("http://localhost:3000/jobTitle", {
@@ -18,6 +19,8 @@ submit.addEventListener("click", async () => {
     });
     let responseData = await response.json();
     console.log(responseData);
+
+    container.innerHTML = "";
 
     if (responseData.length > 0) {
       responseData.forEach((job) => {
