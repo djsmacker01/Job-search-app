@@ -15,7 +15,7 @@ submit.addEventListener("click", async () => {
   } 
   else 
   {
-    let reqData = {jobCategory: employeeInput.value.toUpperCase()};
+    let reqData = {jobCategory : employeeInput.value.toUpperCase()};
     let response = await fetch("http://localhost:3000/jobTitle", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -30,9 +30,12 @@ submit.addEventListener("click", async () => {
     if (responseData.length > 0) {
       responseData.forEach((job) => {
         // Create a paragraph
-        let { jobTitle, jobCategory } = job;
-        let profileDisplay = document.createElement("li");
-        profileDisplay.textContent = `${jobTitle} ${jobCategory}`;
+        let { jobTitle, annualSalary } = job;
+        
+        let profileDisplay = document.createElement("div");
+
+        profileDisplay.textContent = `${jobTitle}  Annual Salary: (${annualSalary})`;
+
         container.appendChild(profileDisplay);
 
         // put data inside the paragraph
@@ -41,9 +44,9 @@ submit.addEventListener("click", async () => {
         //  showMessage.appendChild();
       });
     } else {
-      let proDisplay = document.createElement("div");
-      proDisplay.textContent = "Sorry, no jobs found in that category";
-      showMessage.appendChild(proDisplay);
+      let profileDisplay = document.createElement("div");
+      profileDisplay.textContent = "Sorry, no jobs found in that category";
+      showMessage.appendChild(profileDisplay);
     }
 
     //  profileDisplay.textContent
