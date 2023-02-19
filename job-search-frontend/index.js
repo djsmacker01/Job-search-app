@@ -7,18 +7,23 @@ const container = document.getElementById("content");
 // Add event listener
 submit.addEventListener("click", async () => {
   showMessage.innerHTML = "";
+
   if (employeeInput.value.trim() === "") {
     let profileDisplay = document.createElement("div");
-    profileDisplay.textContent = "Enter Employee job categories";
+    profileDisplay.textContent = "Enter job categories";
     showMessage.appendChild(profileDisplay);
-  } else {
+  } 
+  else 
+  {
+    let reqData = {jobCategory: employeeInput.value.toUpperCase()};
     let response = await fetch("http://localhost:3000/jobTitle", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jobTitle: employeeInput.value }),
+      body: JSON.stringify(reqData),
     });
+
+    // console.log(responseData);
     let responseData = await response.json();
-    console.log(responseData);
 
     container.innerHTML = "";
 
@@ -26,9 +31,9 @@ submit.addEventListener("click", async () => {
       responseData.forEach((job) => {
         // Create a paragraph
         let { jobTitle, jobCategory } = job;
-        let proDisplay = document.createElement("li");
-        proDisplay.textContent = `${jobTitle} ${jobCategory}`;
-        container.appendChild(proDisplay);
+        let profileDisplay = document.createElement("li");
+        profileDisplay.textContent = `${jobTitle} ${jobCategory}`;
+        container.appendChild(profileDisplay);
 
         // put data inside the paragraph
 
