@@ -6,6 +6,7 @@ const container = document.getElementById("content");
 
 // Add event listener
 submit.addEventListener("click", async () => {
+  // clear messages
   showMessage.innerHTML = "";
 
   if (employeeInput.value.trim() === "") {
